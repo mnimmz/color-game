@@ -1,5 +1,9 @@
+alert("Welcome to the RGB Color Picker Game! See if you can match the correct color!")
+//Keeps track of which mode the player is in
+var numSquares = 6;
+
 //generates random colors
-var colors = generateRandomColors(6);
+var colors = generateRandomColors(numSquares);
 
 //Color rectangles
 var rectangles = document.querySelectorAll(".rectangle");
@@ -16,13 +20,50 @@ var h1 = document.querySelector("h1");
 //Reset button
 var resetButton = document.querySelector("#reset");
 
+//Easy & hard buttons
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
+
+
+
+easyBtn.addEventListener("click", function(){
+  easyBtn.classList.add("selected");
+  hardBtn.classList.remove("selected");
+  h1.style.backgroundColor = "#f1f1f1";
+  numSquares = 4;
+  colors = generateRandomColors(numSquares);
+  pickedColor = currentColor();
+  colorDisplay.textContent = pickedColor;
+  for(var i = 0; i < rectangles.length; i++){
+    if(colors[i]){
+      rectangles[i].style.backgroundColor = colors[i];
+    } else{
+      rectangles[i].style.display = "none";
+    }
+  }
+});
+
+hardBtn.addEventListener("click", function(){
+  hardBtn.classList.add("selected");
+  easyBtn.classList.remove("selected");
+  h1.style.backgroundColor = "#f1f1f1";
+  numSquares = 6;
+  colors = generateRandomColors(numSquares);
+  pickedColor = currentColor();
+  colorDisplay.textContent = pickedColor;
+  for(var i = 0; i < rectangles.length; i++){
+      rectangles[i].style.backgroundColor = colors[i];
+      rectangles[i].style.display = "inline-block";
+  }
+});
+
 //Message that displays right or wrong choice
 var messageDisplay = document.querySelector("#message");
 
 //Resets the game by generating new colors again
 resetButton.addEventListener("click", function(){
   //generate all new colors
-  colors = generateRandomColors(6);
+  colors = generateRandomColors(numSquares);
   //pick a new random color from array
   pickedColor = currentColor();
   //change colorDisplay to match currentColor
@@ -31,7 +72,7 @@ resetButton.addEventListener("click", function(){
   for(var i = 0; i < rectangles.length; i++){
     rectangles[i].style.backgroundColor = colors[i];
   }
-  h1.style.background = "#f1f1f1";
+  h1.style.backgroundColor = "#f1f1f1";
 });
 
 //Displays the name of the current color at the top

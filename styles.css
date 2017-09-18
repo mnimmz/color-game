@@ -9,9 +9,16 @@ body {
 .rectangle {
   width: 14%;
   background-color: red;
-  padding-bottom: 40%;
+  padding-bottom: 34%;
   display: inline-block;
   margin: 45px 15px;
+}
+
+h1 {
+  margin: 0;
+  padding: 51px;
+  text-align: center;
+  font-size: 55px;
 }
 
 #stripe {
