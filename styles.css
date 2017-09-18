@@ -7,9 +7,9 @@ body {
   text-align: center;
 }
 .rectangle {
-  width: 16%;
+  width: 14%;
   background-color: red;
   padding-bottom: 30%;
   display: inline-block;
-  margin: -2px;
+  margin: 9px;
 }
