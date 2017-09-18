@@ -13,8 +13,26 @@ var colorDisplay = document.querySelector("#colorDisplay");
 //header
 var h1 = document.querySelector("h1");
 
+//Reset button
+var resetButton = document.querySelector("#reset");
+
 //Message that displays right or wrong choice
 var messageDisplay = document.querySelector("#message");
+
+//Resets the game by generating new colors again
+resetButton.addEventListener("click", function(){
+  //generate all new colors
+  colors = generateRandomColors(6);
+  //pick a new random color from array
+  pickedColor = currentColor();
+  //change colorDisplay to match currentColor
+  colorDisplay.textContent = pickedColor;
+  //change colors of squares
+  for(var i = 0; i < rectangles.length; i++){
+    rectangles[i].style.backgroundColor = colors[i];
+  }
+  h1.style.background = "#f1f1f1";
+});
 
 //Displays the name of the current color at the top
 colorDisplay.textContent = pickedColor;
@@ -31,6 +49,7 @@ for(var i = 0; i < rectangles.length; i++){
     //compare color to pickedColor
     if(clickedColor === pickedColor){
       messageDisplay.textContent = "Correct!";
+      resetButton.textContent = "Play Again?";
       changeColors(clickedColor);
       h1.style.backgroundColor = clickedColor;
     } else {

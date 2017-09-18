@@ -9,7 +9,17 @@ body {
 .rectangle {
   width: 14%;
   background-color: red;
-  padding-bottom: 30%;
+  padding-bottom: 40%;
   display: inline-block;
-  margin: 9px;
+  margin: 45px 15px;
+}
+
+#stripe {
+  height: 50px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.selected {
+  background-color: blue;
 }
