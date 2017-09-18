@@ -1,12 +1,5 @@
-//random colors
-var colors = [
-  "rgb(255, 0, 0)",
-  "rgb(255, 255, 0)",
-  "rgb(0, 255, 0)",
-  "rgb(0, 255, 255)",
-  "rgb(0, 0, 255)",
-  "rgb(255, 0, 255)"
-]
+//generates random colors
+var colors = generateRandomColors(6);
 
 //Color rectangles
 var rectangles = document.querySelectorAll(".rectangle");
@@ -16,6 +9,9 @@ var pickedColor = currentColor();
 
 //RGB color title at the top
 var colorDisplay = document.querySelector("#colorDisplay");
+
+//header
+var h1 = document.querySelector("h1");
 
 //Message that displays right or wrong choice
 var messageDisplay = document.querySelector("#message");
@@ -36,6 +32,7 @@ for(var i = 0; i < rectangles.length; i++){
     if(clickedColor === pickedColor){
       messageDisplay.textContent = "Correct!";
       changeColors(clickedColor);
+      h1.style.backgroundColor = clickedColor;
     } else {
       this.style.backgroundColor = "#f1f1f1";
       messageDisplay.textContent = "Try Again";
@@ -43,6 +40,7 @@ for(var i = 0; i < rectangles.length; i++){
   });
 }
 
+//changes colors of all rectangles to correct color
 function changeColors(color) {
   //loop through all rectangles
   for(var i = 0; i < rectangles.length; i++){
@@ -51,7 +49,32 @@ function changeColors(color) {
   }
 }
 
+//Picks a random color from the colors array by using a random number based on the length of the array
 function currentColor(){
   var random = Math.floor(Math.random() * colors.length);
   return colors[random];
+}
+
+//stores randomColor inside array(arr)
+function generateRandomColors(num){
+  //make an array
+  var arr = []
+  //repeat num times
+  for(var i = 0; i < num; i++){
+    //get random color and push into array (arr)
+    arr.push(randomColor());
+  }
+  //return that array
+  return arr;
+}
+
+//generates random colors
+function randomColor(){
+  //pick a "red" from 0 to 255
+  var r = Math.floor(Math.random() * 256);
+  //pick a "green" from 0 to 255
+  var g = Math.floor(Math.random() * 256);
+  //pick a "blue" from 0 to 255
+  var b = Math.floor(Math.random() * 256);
+  return "rgb(" + r + ", " + g + ", " + b + ")";
 }
