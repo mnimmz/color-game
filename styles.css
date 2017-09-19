@@ -1,5 +1,5 @@
 body {
-  background-color: #f1f1f1;
+  background-color: #403F4C;
   margin: 0;
 }
 
@@ -9,16 +9,31 @@ body {
 .rectangle {
   width: 14%;
   background-color: red;
-  padding-bottom: 34%;
+  padding-bottom: 30%;
   display: inline-block;
-  margin: 45px 15px;
+  margin: 25px 15px;
 }
 
 h1 {
   margin: 0;
-  padding: 51px;
   text-align: center;
   font-size: 55px;
+  text-transform: uppercase;
+  font-family: 'Encode Sans Expanded', sans-serif;
+  font-weight: 500;
+  padding-bottom: 61px;
+  padding-top: 51px;
+  text-transform: capitalize;
+  color: #fff;
+  line-height: 84px;
+  background-color: #06AED5;
+}
+
+#colorDisplay {
+  padding-bottom: 51px;
+  text-transform: uppercase;
+  padding-top: 16px;
+  font-weight: 700;
 }
 
 #stripe {
@@ -28,5 +43,31 @@ h1 {
 }
 
 .selected {
-  background-color: blue;
+  background-color: #06AED5;
+  color: #fff;
+}
+#message {
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: 'Encode Sans Expanded', sans-serif;
+  width: 20%;
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: 'Encode Sans Expanded', sans-serif;
+  font-weight: 700;
+  height: 100%;
+  color: #06AED5;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 2.0s;
+  cursor: pointer;
+}
+
+button:hover {
+  color: white;
+  background-color: #06AED5;
 }

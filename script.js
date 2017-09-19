@@ -1,4 +1,4 @@
-alert("Welcome to the RGB Color Picker Game! See if you can match the correct color!")
+// alert("Welcome to the RGB Color Picker Game! See if you can match the correct color!")
 //Keeps track of which mode the player is in
 var numSquares = 6;
 
@@ -25,11 +25,11 @@ var easyBtn = document.querySelector("#easyBtn");
 var hardBtn = document.querySelector("#hardBtn");
 
 
-
+//Easy and hard buttons reset the colors and changes the amount of rectangles
 easyBtn.addEventListener("click", function(){
   easyBtn.classList.add("selected");
   hardBtn.classList.remove("selected");
-  h1.style.backgroundColor = "#f1f1f1";
+  h1.style.backgroundColor = "#06AED5";
   numSquares = 4;
   colors = generateRandomColors(numSquares);
   pickedColor = currentColor();
@@ -46,7 +46,7 @@ easyBtn.addEventListener("click", function(){
 hardBtn.addEventListener("click", function(){
   hardBtn.classList.add("selected");
   easyBtn.classList.remove("selected");
-  h1.style.backgroundColor = "#f1f1f1";
+  h1.style.backgroundColor = "#06AED5";
   numSquares = 6;
   colors = generateRandomColors(numSquares);
   pickedColor = currentColor();
@@ -68,11 +68,12 @@ resetButton.addEventListener("click", function(){
   pickedColor = currentColor();
   //change colorDisplay to match currentColor
   colorDisplay.textContent = pickedColor;
+  this.textContent = "New Colors";
   //change colors of squares
   for(var i = 0; i < rectangles.length; i++){
     rectangles[i].style.backgroundColor = colors[i];
   }
-  h1.style.backgroundColor = "#f1f1f1";
+  h1.style.backgroundColor = "#06AED5";
 });
 
 //Displays the name of the current color at the top
@@ -93,8 +94,9 @@ for(var i = 0; i < rectangles.length; i++){
       resetButton.textContent = "Play Again?";
       changeColors(clickedColor);
       h1.style.backgroundColor = clickedColor;
+
     } else {
-      this.style.backgroundColor = "#f1f1f1";
+      this.style.backgroundColor = "#403F4C";
       messageDisplay.textContent = "Try Again";
     }
   });
