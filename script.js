@@ -1,4 +1,4 @@
-// alert("Welcome to the RGB Color Picker Game! See if you can match the correct color!")
+alert("Welcome to the RGB Color Picker Game! See if you can match the correct color!")
 //Keeps track of which mode the player is in
 var numSquares = 6;
 
